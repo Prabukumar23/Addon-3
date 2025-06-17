@@ -1,0 +1,312 @@
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: *********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 21
+Server version: 8.0.37 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database task;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use task;
+Database changed
+mysql> create table student(
+    -> stud_name varchar(20),
+    -> course_name varchar(30));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into student value('Prabukumar','BSC IT'),('Sanjay','BSC CS'),('Abhi','BSC CT'),('Nikash','BCOM PA'),('Suba','BCOM CA');
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++------------+-------------+
+| stud_name  | course_name |
++------------+-------------+
+| Prabukumar | BSC IT      |
+| Sanjay     | BSC CS      |
+| Abhi       | BSC CT      |
+| Nikash     | BCOM PA     |
+| Suba       | BCOM CA     |
++------------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select count(*) from student where course_name='BSC CS';
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> savepoint student;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> create table payment(
+    -> dep_id int,
+    -> dep_name varchar(20),
+    -> salary int);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc payment;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| dep_id   | int         | YES  |     | NULL    |       |
+| dep_name | varchar(20) | YES  |     | NULL    |       |
+| salary   | int         | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into payment values(2021,'BSC IT',70000),(2022,'BSC CS',60000),(2023,'BSC CT',40000),(2024,'BCOM PA',30000),(2025,'BCOM CA',20000);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++------------+-------------+
+| stud_name  | course_name |
++------------+-------------+
+| Prabukumar | BSC IT      |
+| Sanjay     | BSC CS      |
+| Abhi       | BSC CT      |
+| Nikash     | BCOM PA     |
+| Suba       | BCOM CA     |
++------------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from payment;
++--------+----------+--------+
+| dep_id | dep_name | salary |
++--------+----------+--------+
+|   2021 | BSC IT   |  70000 |
+|   2022 | BSC CS   |  60000 |
+|   2023 | BSC CT   |  40000 |
+|   2024 | BCOM PA  |  30000 |
+|   2025 | BCOM CA  |  20000 |
++--------+----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> alter table student add column dep_id int;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from payment;
++--------+----------+--------+
+| dep_id | dep_name | salary |
++--------+----------+--------+
+|   2021 | BSC IT   |  70000 |
+|   2022 | BSC CS   |  60000 |
+|   2023 | BSC CT   |  40000 |
+|   2024 | BCOM PA  |  30000 |
+|   2025 | BCOM CA  |  20000 |
++--------+----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from student;
++------------+-------------+--------+
+| stud_name  | course_name | dep_id |
++------------+-------------+--------+
+| Prabukumar | BSC IT      |   NULL |
+| Sanjay     | BSC CS      |   NULL |
+| Abhi       | BSC CT      |   NULL |
+| Nikash     | BCOM PA     |   NULL |
+| Suba       | BCOM CA     |   NULL |
++------------+-------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> savepoint student;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> savepoint payment;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> update student set dept_id=2021 where course_name='BSC IT';
+ERROR 1054 (42S22): Unknown column 'dept_id' in 'field list'
+mysql> update student set dep_id=2021 where course_name='BSC IT';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set dep_id=2022 where course_name='BSC CS';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set dep_id=2023 where course_name='BSC CT';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set dep_id=2024 where course_name='BCOM PA';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set dep_id=2025 where course_name='BCOM CA';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student;
++------------+-------------+--------+
+| stud_name  | course_name | dep_id |
++------------+-------------+--------+
+| Prabukumar | BSC IT      |   2021 |
+| Sanjay     | BSC CS      |   2022 |
+| Abhi       | BSC CT      |   2023 |
+| Nikash     | BCOM PA     |   2024 |
+| Suba       | BCOM CA     |   2025 |
++------------+-------------+--------+
+5 rows in set (0.00 sec)
+mysql> alter table student add column reg_no int first;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++--------+------------+-------------+--------+
+| reg_no | stud_name  | course_name | dep_id |
++--------+------------+-------------+--------+
+|   NULL | Prabukumar | BSC IT      |   2021 |
+|   NULL | Sanjay     | BSC CS      |   2022 |
+|   NULL | Abhi       | BSC CT      |   2023 |
+|   NULL | Nikash     | BCOM PA     |   2024 |
+|   NULL | Suba       | BCOM CA     |   2025 |
++--------+------------+-------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> update student set reg_no=1 where student_name='Prabukumar';
+ERROR 1054 (42S22): Unknown column 'student_name' in 'where clause'
+mysql>
+mysql> update student set reg_no=1 where stud_name='Prabukumar';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set reg_no=2 where stud_name='Sanjay';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set reg_no=3 where stud_name='Abhi';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set reg_no=4 where stud_name='Nikash';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set reg_no=5 where stud_name='Suba';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student;
++--------+------------+-------------+--------+
+| reg_no | stud_name  | course_name | dep_id |
++--------+------------+-------------+--------+
+|      1 | Prabukumar | BSC IT      |   2021 |
+|      2 | Sanjay     | BSC CS      |   2022 |
+|      3 | Abhi       | BSC CT      |   2023 |
+|      4 | Nikash     | BCOM PA     |   2024 |
+|      5 | Suba       | BCOM CA     |   2025 |
++--------+------------+-------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> alter table student add column salary int first;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> update student set salary=100000 where reg_no='1';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set salary=70000 where reg_no='2';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set salary=50000 where reg_no='3';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set salary=30000 where reg_no='4';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set salary=10000 where reg_no='5';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select avg(salary) from student where course_name='BSC IT';
++-------------+
+| avg(salary) |
++-------------+
+| 100000.0000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(salary) from student where course_name='BSC CS';
++-------------+
+| avg(salary) |
++-------------+
+|  70000.0000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(salary) from student where course_name='BSC CT';
++-------------+
+| avg(salary) |
++-------------+
+|  50000.0000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(salary) from student where course_name='BCOM CA';
++-------------+
+| avg(salary) |
++-------------+
+|  10000.0000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(salary) from student where course_name='BCOM PA';
++-------------+
+| avg(salary) |
++-------------+
+|  30000.0000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select course_name,avg(salary) from student group by course_name;
++-------------+-------------+
+| course_name | avg(salary) |
++-------------+-------------+
+| BSC IT      | 100000.0000 |
+| BSC CS      |  70000.0000 |
+| BSC CT      |  50000.0000 |
+| BCOM PA     |  30000.0000 |
+| BCOM CA     |  10000.0000 |
++-------------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select course_name,max(salary) from student group by course_name;
++-------------+-------------+
+| course_name | max(salary) |
++-------------+-------------+
+| BSC IT      |      100000 |
+| BSC CS      |       70000 |
+| BSC CT      |       50000 |
+| BCOM PA     |       30000 |
+| BCOM CA     |       10000 |
++-------------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select course_name,min(salary) from student group by course_name;
++-------------+-------------+
+| course_name | min(salary) |
++-------------+-------------+
+| BSC IT      |      100000 |
+| BSC CS      |       70000 |
+| BSC CT      |       50000 |
+| BCOM PA     |       30000 |
+| BCOM CA     |       10000 |
++-------------+-------------+
+5 rows in set (0.00 sec)
