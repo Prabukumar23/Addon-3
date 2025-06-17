@@ -1,0 +1,144 @@
+Datatype:
+1)Primitive datatype-numbers(4 datatype-int,short,float,byte)-used for memory allocation they are pre defined libraries.
+2)Non Primitive-object,class,String(class name should be in capital.
+3)String-immutable(not change)
+
+
+class Main {
+    public static void main(String[] args) {
+        String s = "Good Morning";
+        System.out.println(s.toUpperCase());
+        System.out.println(s.toLowerCase());
+    }
+}
+
+
+output:
+
+GOOD MORNING
+good morning
+
+A new website for posting ur errors
+Stackoverflow
+
+constructor:
+1)default ()
+2)paramaterized ("")
+
+
+
+class Main {
+     public static void main(String[] args) {
+         StringBuffer name = new StringBuffer();
+         name.append("Krishna");
+          System.out.println(name.reverse());
+           System.out.println(name);
+     }
+         
+}
+
+
+output:
+
+anhsirK
+anhsirK
+
+
+
+class Main{
+    public static void main(String[] args){
+        String input = "How are you";
+        for(int i=0;i<input.length();i++)
+        {
+            System.out.println(input.charAt(i));
+        }
+    }
+}
+
+
+output:
+
+H
+o
+w
+ 
+a
+r
+e
+ 
+y
+o
+u
+
+
+
+class Main{
+    public static void main(String[] args){
+        String input = "How are you";
+        int count = 0;
+        for(int i=0;i<input.length();i++)
+        {
+            System.out.println(input.charAt(i));
+            if(input.charAt(i)=='a' || input.charAt(i)=='e' ||input.charAt(i)=='i'|| input.charAt(i)=='o'||input.charAt(i)=='u')
+                count++;
+        }
+        System.out.println("no of count:"+count);
+    }
+}
+
+
+output:
+
+H
+o
+w
+ 
+a
+r
+e
+ 
+y
+o
+u
+no of count:5
+
+
+
+class Main{
+    public static void main(String[] args){
+        String input = "how are you";
+        int count = 0;
+        int conCount = 0;
+        for(int i=0;i<input.length();i++)
+        {
+            System.out.println(input.charAt(i));
+            if(input.charAt(i)=='a' || input.charAt(i)=='e' ||input.charAt(i)=='i'|| input.charAt(i)=='o'||input.charAt(i)=='u')
+                count++;
+            else if(input.charAt(i)>='a' && input.charAt(i)<='z')
+            {
+                conCount++;
+            }
+        }
+        System.out.println("no of count:"+count);
+        System.out.println("no of conCount:"+conCount);
+    }
+}
+
+output:
+
+h
+o
+w
+ 
+a
+r
+e
+ 
+y
+o
+u
+no of count:5
+no of conCount:4
+
+
+
