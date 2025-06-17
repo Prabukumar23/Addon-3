@@ -1,0 +1,115 @@
+public class Main {
+    public static void main(String[] args) {
+        int age=16;
+        if(age>16){
+        System.out.println("Valid");
+    }
+     else if(age==16){
+        System.out.println("Age is 16");
+    }
+else{
+    System.out.println("Invalid");
+}
+}
+}
+
+
+
+
+public class Main {
+    public static void main(String[] args) {
+       int age=26;
+       String gender ="Male";
+       
+       if(age>=21 && gender=="Female")
+       {
+           System.out.println("Eligible for female");
+       }
+       else if(age>=23 && gender=="Male")
+       {
+           System.out.println("Eligible for Male");
+       }
+       else {
+           System.out.println("You are not Eligible");
+       }
+}
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+       int age=16;
+       String gender ="male";
+       
+       if(age<18 || gender=="Female")
+       {
+           System.out.println("Ticket is Free");
+       }
+       else {
+           System.out.println("Ticket is not Free");
+       }
+}
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+       int age=26;
+       String gender ="male";
+       
+       if(age<18 || gender=="Female")
+       {
+           System.out.println("Ticket is Free");
+       }
+       else {
+          int km=25;
+          switch(km){
+              case 5:{
+                  System.out.println("Rupees 50");
+                  break;
+              }
+              case 10:{
+                  System.out.println("Rupees 100");
+                  break;
+              }
+              default:{
+                  System.out.println("Not applicable");
+              }
+          }
+       }
+}
+}
+
+
+
+
+public class Main {
+    public static void main(String[] args) {
+      for(int i=0;i<5;i++){
+          System.out.println(i);
+      }
+}
+}
+
+
+class Main {
+    public static void main(String[] args) {
+     int i=5;
+     do
+     {
+         System.out.println(i);
+         i++;
+     }while(i<5);
+}
+}
+
+
+public class Main{
+    int myMethod(int a,int b){
+        return a + b;
+    }
+    public static void main(String[]args){
+        Main mi=new Main();
+        System.out.println(mi.myMethod(6,8));
+    }
+}
