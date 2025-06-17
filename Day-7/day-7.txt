@@ -1,0 +1,96 @@
+@Override - annotation have meta datas.
+java Runnable interface.
+.join()- used to join after the sleep method.Its should be entered only in the main method.
+
+RunningClass:
+
+package Thread;
+
+public class RunningClass {
+
+	public static void main(String[]args) {
+		ThreadClass tc =new ThreadClass();
+		Thread tc1 = new Thread(tc);
+		tc1.start();
+	for(int i=1000;i<1100;i++) {
+		System.out.println(i);
+	}
+		ThreadClass2 tc2 = new ThreadClass2();
+		tc2.start();
+	}
+
+}
+
+
+
+ThreadClass:
+
+package Thread;
+
+public class ThreadClass implements Runnable {
+	@Override
+	public void run() {
+		for (int i=0;i<100;i++) {
+			System.out.println(i);
+		}
+	}
+
+}
+
+
+ThreadClass2:
+
+package Thread;
+
+public class ThreadClass2 extends Thread {
+	@Override
+	public void run() {
+		for (int i=0;i<100;i++) {
+			System.out.println(i);
+		}
+	}
+
+}
+
+Sleep method in Thread:
+
+package Thread;
+
+public class ThreadClass implements Runnable {
+	@Override
+	public void run() {
+		for (int i=0;i<100;i++) {
+			System.out.println(i);
+		}
+		try {
+			Thread.sleep(1000);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		for (int i=0;i<100;i++) {
+			System.out.println(i);
+		}
+	}
+
+}
+
+
+-----------------------------------
+try{
+  thread.sleep(); // it will sleep for some millionSeconds.
+}
+
+catch(Exception e){
+e.printStackTrace();//another output function.
+}
+
+Plain old java object - PoJo.
+service - business project.
+Respositary- storing of data.
+Controller.
+
+------------------------------------
+FLOWCHAT:
+CONTROLLER: UI AND SERVICE.
+MODEL DATA AND IT WILL STORE IN RESPOSITARY....AFTER USING SQL IT WILL MOVE TO RESPOSITARTY.
