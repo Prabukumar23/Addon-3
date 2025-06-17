@@ -1,0 +1,422 @@
+main 
+collection classes : 
+                                    D        O(order)    S(shorter)     Ts         null 
+1)priority queue   - yes               -             no                   -            no 
+2) Array dequeue - yes  lifo or Fifo       no                   -            no
+
+purpose:
+
+1)Arraylist - use it when more for search option or needed then inserted,insertion and removal.
+2)vector - use it " " "thread safety.
+3)linkedlist-use it when it insertion or removal when frequently.
+4) hash set - when you want only  unique elements without any order.
+5)Linked hash set - insertion order maintain only.
+6)tree set- used it in  only  unique elements specific order.
+7)hashmap- key value pass without any order.
+8)linked hashmap-key value pass with in order.
+9)hash table - an unordered collection of key-value pairs, with a unique key for each value. 
+10)tree map-key value map sorted in specific order.
+11)priority queue   - a queue used in some specific order.
+12) Array dequeue -you can use it has as stack or queue.
+
+
+
+
+ArrayListClass:
+
+package Collection.List;
+import java.util.*;
+
+public class ArrayListClass {
+
+	public static void main(String[] args) {
+
+		int arr[]=new int[15];
+
+		ArrayList<Integer> alist = new ArrayList<>(100);
+
+		alist.add(10);
+
+		alist.add(20);
+
+		alist.add(30);
+
+		alist.add(2,40);
+
+		alist.set(3,50);
+
+		alist.remove(1);
+
+		System.out.println(alist.reversed());
+
+		System.out.println(alist.contains(100));
+
+		System.out.println(alist.size());
+
+		System.out.println(alist);
+
+	}
+
+
+
+}
+
+
+
+LinkedListClass:
+
+
+package Collection.List;
+import java.util.*;
+
+public class LinkedListClass {
+
+	public static void main(String[] args) {
+
+		int arr[]=new int[15];
+
+		LinkedList<Integer> llist = new LinkedList<>();
+
+		llist.add(10);
+
+		llist.add(20);
+
+		llist.add(30);
+
+		llist.add(2,40);
+
+		llist.set(3,50);
+		llist.remove(1);
+
+		System.out.println(llist.reversed());
+
+		System.out.println(llist.contains(100));
+
+		System.out.println(llist.size());
+
+		System.out.println(llist);
+
+	}
+
+
+
+}
+
+
+
+VectorClass:
+
+
+package Collection.List;
+
+import java.util.Vector;
+
+public class VectorClass {
+
+	public static void main(String[] args) {
+
+		int arr[]=new int[15];
+
+		Vector<Integer> vlist = new Vector<>();
+
+		vlist.add(10);
+
+		vlist.add(20);
+
+		vlist.add(30);
+
+		vlist.add(2,40);
+
+		vlist.set(3,50);
+
+		vlist.remove(1);
+
+		System.out.println(vlist.reversed());
+
+		System.out.println(vlist.contains(100));
+
+		System.out.println(vlist.size());
+
+		System.out.println(vlist);
+
+	}
+
+
+
+}
+
+
+
+HashMap:
+
+
+package Collection.Map;
+
+import java.util.HashMap;
+
+public class HashMapClass {
+public static void main(String[]args) {
+	HashMap<String,Object>hm = new HashMap<>();
+	hm.put("name","Prabu");
+	hm.put("name","Sanjay");
+	hm.put("null","Adhi");
+	System.out.println(hm);
+	
+}
+}
+
+
+
+
+LinkedHashMap:
+
+package Collection.Map;
+import java.util.LinkedHashMap;
+public class LinkedHashMapClass {
+public static void main(String[]args) {
+	LinkedHashMap<String,Object>hm = new LinkedHashMap<>();
+	hm.put("name","Prabu");
+	hm.put("name","Sanjay");
+	hm.put("null","Nikash");
+	System.out.println(hm);
+	
+}
+}
+
+
+ TreeMapClass:
+
+package Collection.Map;
+import java.util.TreeMap;
+public class TreeMapClass {
+	public static void main(String[]args) {
+		TreeMap<String,Object>tm = new TreeMap<>();
+		tm.put("name","Prabu");
+		tm.put("name","Sanjay");
+		tm.put("null","Nikash");
+		System.out.println(tm);
+		
+	}
+}
+
+
+ArrayDeque:
+
+
+package Collection.Queue;
+
+import java.util.ArrayDeque;
+
+public class ArrayDequeClass {
+    public static void main(String[] args) {
+        ArrayDeque<String> colors = new ArrayDeque<>();
+
+        colors.add("Blue");
+        colors.add("Green");
+        colors.add("Red");
+
+        System.out.println("ArrayDeque elements:" +colors);
+       
+    }
+}
+
+
+PriorityQueue:
+
+
+package Collection.Queue;
+
+import java.util.PriorityQueue;
+
+public class PriorityClass {
+    public static void main(String[] args) {
+        PriorityQueue<Integer> numbers = new PriorityQueue<>();
+
+        numbers.add(30);
+        numbers.add(10);
+        numbers.add(20);
+
+        System.out.println("PriorityQueue elements:" +numbers);   
+        }
+    }
+
+
+HashSet:
+
+package Collection.Set;
+
+import java.util.HashSet;
+
+public class HashSetClass {
+    public static void main(String[] args) {
+        HashSet<String> fruits = new HashSet<>();
+
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Orange");
+        fruits.add("Apple");  
+
+        System.out.println("Fruits in the set: " + fruits);
+    }
+}
+
+
+LinkedHashSet:
+
+
+
+package Collection.Set;
+
+import java.util.LinkedHashSet;
+
+public class LinkedHashSetClass {
+    public static void main(String[] args) {
+        LinkedHashSet<String> animals = new LinkedHashSet<>();
+
+        animals.add("Dog");
+        animals.add("Cat");
+        animals.add("Elephant");
+        animals.add("Cat");  
+
+        System.out.println("Animals in the LinkedHashSet:"+animals);
+
+    }
+}
+
+
+
+TreeSet:
+
+
+package Collection.Set;
+
+import java.util.TreeSet;
+
+public class TreeSetClass {
+    public static void main(String[] args) {
+        TreeSet<String> cities = new TreeSet<>();
+
+        cities.add("London");
+        cities.add("Paris");
+        cities.add("New York");
+        cities.add("Tokyo");
+        cities.add("Paris");  
+
+        System.out.println("Cities:"+cities);
+    }
+}
+
+//PROJECT:
+
+STUDENTDETAILMODEL.JAVA:
+
+import java.util.Scanner;
+class Student {
+    String name;
+    int age;
+    double marks;
+
+    Student(String name, int age, double marks) {
+        this.name = name;
+        this.age = age;
+        this.marks = marks;
+    }
+
+    void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Marks: " + marks);
+    }
+}
+
+
+AdmissionDetailModel:
+
+
+package Model;
+import java.io.*;
+class AdmissionDetailModel<Student> {
+    static final int Mark = 60;
+
+    int isEligible(Student student) {
+        if (Mark >= Mark) {
+            return 1;  
+        } else {
+            return 0; 
+        }
+    }
+
+    void admit(Student student) {
+        int eligible = isEligible(student);
+        if (eligible == 1) {
+            System.out.println("Accepted");
+        } 
+        else {
+            System.out.println(" Rejected");
+        }
+    }
+}
+
+
+MAIN.JAVA:
+
+import java.util.Scanner;
+public class main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter student name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter student age: ");
+        int age = scanner.nextInt();
+
+        System.out.print("Enter student marks: ");
+        int marks = scanner.nextInt();
+
+        Student student = new Student(name, age, marks);
+        AdmissionDetailModel admission = new AdmissionDetailModel();
+
+        System.out.println("Student Details");
+        student.displayDetails();
+
+        System.out.println("Admission Result");
+        admission.admit(student);
+
+        scanner.close();
+    }
+}
+
+
+
+Thread:
+ Its is lite weight process.
+To allows a single process to run on core.
+THRAED IS USED TO RUN A PROGRAM simultaneously(IN JAVA).
+
+i)multitasking  run a multiple source.
+ii)multithreading.
+
+2 ways to create a thread:
+
+1)extending thread class.
+2)class to class runnable interface to implement.
+
+key & method in thread:
+
+1)START
+2)RUN
+3)SLEEP
+4)JOIN
+5)IS ALIVE
+6)INTERRUPTED
+7)SET PRIORITY()
+
+
+THREAD STAGE:
+
+1)NEW STATE 
+2)RUNNABLE - READY TO RUN.
+3)WAITING/ BLOCKED 
+4)TERMINATED STATE
+5)TIMED WAITING
