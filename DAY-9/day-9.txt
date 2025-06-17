@@ -1,0 +1,109 @@
+DATABASE DESIGNING:
+
+*DB DESIGNING IS A PROCESS OF CREATING A DETAILED DATA MODEL OF A DB.
+*IT INVOLVES STRUCTING DATA LOGICALLY & EFFICIENTLY.
+
+KEY COCEPT IN DB DESIGNING:
+
+1)REQUIREMENT ANALYSIS.
+2)CONCEPTUAL DESIGN (ER DIAGRAM).
+3)LOGICAL DESIGN.
+4)NORMALISATION - USED TO AVOID DUPLICATION.(NORMAL FORMS - 1NF,2NF,3NF).
+5)PHYSICAL DESIGN.
+
+MAIN PURPOSE:
+
+1)DATA INTEGRATION.
+2)REDUCE DUPLICATION.
+3)INCREASE SECURITY.
+4)SACLABILITY.
+
+TYPES OF NORMALIZATION:
+
+*IT IS A PROCESS OF ORANISING DATA IN A DATABASE.
+
+RULES:
+
+1NF :
+*EACH COLUMN SHOULD CONTAINS ATOMIC VALUES.
+*NO REPEATING GROUP.
+
+2NF : 
+*SHOULD MEET THE REQURIMENT  OF 1NF.
+*NO PARTIAL DEPENDENCY.
+
+3NF:
+*SHOULD MEET THE REQURIMENT  OF 2NF.
+*NO TRANSITIVE DEPENDENCY.
+
+____________________________________________________
+
+SQL CLAUSES:
+
+WHERE
+EG:
+1)SELECT * FROM TABLENAME WHERE ROLLNO=2222;
+2)select name from details where roll=2;
+
+____________________________________________________
+ASCENDING ORDER :
+
+SYNTAX:
+
+select * from tablename  order by dep_id;
+
+DESCENDING ORDER:
+
+SYNTAX:
+
+ select * from tablename order by dep_id desc;
+
+-----------------------------------------------------------------------------
+TO SET LIMIT:
+
+SYNTAX:
+
+select * from tablename  limit 2;
+
+------------------------------------------------------------------------------
+SYNTAX:
+select * from tablename limit 2 offset 3;
+
+THIS WILL LEAVE THE 1ST 3 ELEMENTS AND THEN PRINT NEXT 2 ELEMENTS.
+___________________________________________________
+
+DISTINCT:
+
+SYNTAX:
+select distinct name from tablename;
+
+___________________________________________________
+SYNTAX FOR DISPLAYING A CURRENT VALUE:
+
+select * from details where dep_id in (103,102);
+
+__________________________________________________
+
+SYNTAX FOR OR & NOT:
+
+1)select * from details where dep_id=103 or dep_id=102 ;
+2) select * from details where dep_id not in (103,102);
+
+_________________________________________________
+SYNTAX FOR DISPLAYING A D/B VALUE:
+
+select * from details where dep_id between 101 and 102;
+
+_________________________________________________
+SYNTAX FOR RENAMING THE COLUMN NAME:
+
+select roll as student_id,name as studentname from details;
+
+-------------------------------------------------------------------------
+
+LIKE CLAUSE:
+
+SYNTAX:
+
+ select * from details where name like '%a%';
+-------------------------------------------------------------------
