@@ -1,0 +1,28 @@
+public class BankAccount {
+    int balance = 0;
+
+    void deposit(int amount) {
+        balance += amount;
+    }
+
+    void withdraw(int amount) {
+        if (amount <= balance) balance -= amount;
+    }
+
+    void show() {
+        System.out.println("Balance: " + balance);
+    }
+
+    public static void main(String[] args) {
+        BankAccount a = new BankAccount();
+        a.deposit(100);
+        a.withdraw(40);
+        a.show();
+    }
+}
+
+
+
+output:
+
+Balance: 60
