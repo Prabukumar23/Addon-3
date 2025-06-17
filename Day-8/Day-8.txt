@@ -1,0 +1,239 @@
+SQL - STRUCTURED QUERY LANGUAGE.
+
+What is database?
+Organized Collection of  related information.
+
+Different forms of database:
+
+1)Physical form - eg:note,book,files.
+2)digital form - data is stored digitally in a computer as 0's and 1's.
+3)logical form - database is maintained in a database using a software.
+
+(DBMS- DATABASE MANAGEMENT SYSTEM).
+
+1) DATA REDUNDANCY- UNWANTED DUPLICATION. ITS STORE THE SAME DATA IN MULTIPLE PLACES.
+2)DATA INCONSISTENCY -  THE SAME PIECE OF INFO. APPEARS IN DIFFERENT FORMATS.
+
+RDBMS-RELATIONAL DATABASE MANAGEMENT SYSTEM.
+*DATA IS STORED IN MULTIPLE RELATIONS.
+(TABLE - TABLE IS THE BASE OBJECT IN A DATABASE.)
+
+Eg OF DATABASE :
+1) MYSQL- DATABASE,
+2)ORACLE,
+3)SQL SERVER,
+4)DB2,
+5)POSTGRESQL,
+6)SQLITE-USED FOR LOCAL STORAGE.
+
+
+COMMUNICATE WITH DB:
+ENVIRONMENTS:
+1)CLI-COMMAND LINE INTERFACE.
+2)MYSQL WORK BENCH.
+3)OTHER APPLICATION.
+
+SQL: STRUCTURED QUERY LANGUAGE.
+*USED TO COMMUNICATE WITH THE DATABASE.
+
+5 LANGUAGE IN SQL:
+
+1)DDL - DATA DEFINITION LANGUAGE.
+*USED TO DEFINITION OBJECT.
+
+5 KEYWORDS:
+
+A)CREATE
+B)ALTER
+C)TRUNCATE
+D)RENAME
+E)DROP.
+
+2)DML - DATA MANIPULATE LANGUAGE.
+*USED TO MANIPULATE THE DATA.
+
+3 KEYWORDS:
+
+A)INSERT 
+B)UPDATE
+C)DELETE.
+
+
+3)TCL - TRANSACTION CONTROL LANGUAGE.
+*USED TO CONTROL THE TRANSACTIONS
+
+3 KEYWORDS:
+
+A)COMMIT
+B)ROLLBACK
+C)SAVEPOINT.
+
+4) DCL - DATA CONTROL LANGUAGE
+*USED TO CONTROL THE DATA ACCESS.
+
+2 KEYWORDS:
+
+A)GRANT
+B)REVOKE.
+
+5) DQL - DATA QUERY LANGUAGE.
+*USED TO READ DATA.
+
+1 KEYWORDS:
+
+A) SELECT.
+
+
+MYSQL HOW TO CONNECT :
+
+mysql -u root -p
+enter password:
+
+how to list the database in server?
+
+show database;
+
+how to create db:
+syntax:\
+create database name
+\
+
+syntax for creating table:
+
+create table table_name(
+column1 datatype(size),
+column2 datatype(size),
+..........
+column1n datatype(size));
+
+--------------------------------------------
+ create table products(
+    -> prodid int,
+    -> prodname varchar(10),
+    -> date_of_purchase date,
+    -> price decimal(6,2));
+
+--------------------------------------------
+
+int:integer
+varchar:variable length string 
+char : fixed length string
+date : 'yyyy-mm-dd'
+
+--------------------------------------------
+insert into table_name values (value1,value2,....);
+
+eg: insert into table_name values (1,'Prabukumar','2025-06-14',10000);
+
+--------------------------------------------
+how to read records 
+
+select * from products;
+
+---------------------------------------------
+how to modify the existing value 
+update:
+syntax:
+update table_name set columnname='value' where condition
+update products set date_of_purchase='2025-mm-dd'where prodname='mouse';
+----------------------------------------------
+how to remove records 
+delete
+syntax:
+delete from table_name where condition
+
+eg:delete from products where prodid=4;
+-----------------------------------------------
+
+delete column:
+
+*using drop keyword:
+
+syntax:
+alter table table_name drop column columnname;
+
+__________________________________
+
+how to add a column 
+Aler table
+alter table table_name add column colname datatype;
+
+eg:alter table products add column quantity int;
+-------------------------------------------------
+how to define a structure?
+desc products;
+
+-----------------------------------------------
+how to remove a column?
+alter table table_name drop column columnname 
+-----------------------------------------------
+rename column?
+alter table table_name add remove column
+old_name to new_name
+
+for MariaDB:
+alter table products change column_name  
+new_column_name datatype (mariadb)
+-------------------------------------------------
+how to increase the size or change the datatype
+alter tabletable_name modify columnname datatype(size);
+
+eg: alter table products modify prodname varchar(20);
+-------------------------------------------------
+
+d/b - delete vs truncate:
+
+delete:
+
+remove one or more records.
+can be rolled back.
+will not release the space.
+login will be done.
+
+
+truncate:
+
+remove all records.
+cannot be rolled back.
+will release the space.
+login will not be done.
+
+syntax:
+
+truncate table tablename;
+----------------------------------------------------
+how to remove all rows:
+
+truncate:remove all records.
+
+---------------------------------------------
+how to rename a table:
+
+syntax:
+
+rename table old name to new name;
+
+----------------------------------------------------
+how to remove a table:
+
+syntax:
+
+drop table tablename;
+
+-----------------------------------------------------
+how to list the table on database:
+
+syntax:
+
+show tables;
+
+--------------------------------------------------------
+naming rules:
+1)must start with an alphabet.
+2)cannot contain space.
+3)can contain numbers and special characters (_,$,#).
+4)must be unique.
+
+--------------------------------------------------------
+
+
