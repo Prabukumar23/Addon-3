@@ -56,12 +56,12 @@ public class SalaryDemo {
 }
 
 OUTPUT:
-Enter name: Nikash
+Enter name:Prabukumar V
 Enter age: 19
-Enter basic salary: 1200001
+Enter basic salary: 120000
 
 Employee Details:
-Name: Nikash
+Name: Prabukumar V
 Age: 19
 Total Salary: ₹1560001.3
 -------------------------------------------------------------
@@ -120,14 +120,14 @@ public class StudentManagement {
 }
 
 Output:
-Enter student name: Nikash
+Enter student name: Prabukumar V
 Enter roll number: 25
 Enter mark 1: 70
 Enter mark 2: 65
 Enter mark 3: 80
 
 --- Student Result ---
-Name: Nikash
+Name: Prabukumar V
 Roll No: 25
 Marks: 70, 65, 80
 Total: 215
