@@ -1,0 +1,24 @@
+
+elseif condition using && operator
+public class Main
+{
+	public static void main(String[] args) {
+	int age=16;
+	if(age>16)
+	{
+	        System.out.println("valid");
+	}
+	else if(age<16)
+	{
+	    System.out.print("invalid");
+	}
+	else
+	{
+	    System.out.println("Age is 16");
+	}
+	}
+}
+
+Output:
+Age is 15
+-------------------------
