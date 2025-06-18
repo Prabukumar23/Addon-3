@@ -1,0 +1,75 @@
+ER DIAGRAM :
+
+*VIRTUAL REPRESENTATION OF DATA THAT SHOWS THE ENTITIES,ATTRIBUTES 
+AND RELATIONSHIP BETWEEN THEM.
+
+*IT IS USED DURING CONCEPTUAL DATABASE DESGINING 
+TO UNDERSATND THE ORGANIZE DATA BEFORE CREATING THE SQL TABLE.
+
+BASIC COMPONENTS:
+
+1)ENTITY
+2)ATTRIBUTE
+3)PRIMARY KEY 
+4)FOREIGN KEY.
+
+
+      SYMBOLS                                                            REPRESENTATION
+
+
+RECTANGLE                                                                     ENTITY
+OVAL                                                                            ATTRIBUTE
+DOUBLE RECTANGLE                                            WEEK ENTITY
+DIAMOND                                                           RELATIONSHIP TYPE
+DOUBLE DIAMOND                                IDENTIFYING FOR  RELATIONSHIP WEEK ENTITY
+OVAL (INSIDE A LINE)                                                  KEY  ATTRIBUTE
+DOUBLE OVAL                                                    MULTIPLE VALUE  ATTRIBUTE
+
+OVAL TO LINK TO RECTANGLE 
+AND                                                                                   
+RECTANGLE LINK TO OVAL 
+
+OVAL INSIDE A DOTTED LINES                          PARTIAL KEY  ATTRIBUTE
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+ENTITY :
+
+*REPRESENTS TABLE NAME.
+*IT HAVE ATTRIBUTE INSIDE.
+
+ATTRIBUTE:
+
+*REPRESENTS A COLUMN NAME.
+*ATTRIBUTE HAVE A PRIMARY KEYS.
+
+PRIMARY KEY:
+
+*UNIQUE RECORDS.(EG: ROLLNO,EMAIL).
+*WITHOUT ANY NULL VALUES.
+
+WEAK ENTITY:
+
+*IT DEPENDS ON ENTITY TABLE.
+------------------------------------------------------------------------------
+CARDINAILITY:
+
+IT IS SHOW THE NUMBER OF INSTANCES ONE ENTITY CAN HAVE IN RELATION TO ANOTHER.
+
+1:1 (ONE TO ONE ENTITY).
+1:N (ONE TO MANY).
+M:N (MANY TO MANY).
+----------------------------------------------------------------------------
+JOINTS:
+
+USED TO COMBINE ROWS FROM TWO OR MORE TABLES BASED ON RELATED COLUMNS.
+
+TYPES:
+
+1)INNER JOINT - all MATCH ROWS FROM BOTH TABLE.
+2)OUTER JOINT 
+                    i)left outer joint - ALL ROWS MATCH FROM LEFT + ONLY MATCHES FROM RIGHT.
+	ii) right - ALL ROWS MATCH FROM RIGHT+ ONLY MATCHES FROM LEFT.
+	iii)full - ALL ROWS MATCH FROM BOTH SIDE.
+	iv)cross - ALL THE COMBINATION.
+
+MATCHING ROWS FROM BOTH TABLES.
