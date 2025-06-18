@@ -1,43 +1,59 @@
 
-CREATE TABLE Book (
-    book_id INT PRIMARY KEY,
-    title VARCHAR(100),
-    author VARCHAR(50)
+CREATE DATABASE IF NOT EXISTS CustomerDB;
+USE CustomerDB;
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(100),
+    Age INT,
+    City VARCHAR(100),
+    Email VARCHAR(100),
+    TotalPurchase DECIMAL(10,2)
 );
+INSERT INTO Customers (Name, Age, City, Email, TotalPurchase) VALUES
+('Arun Kumar', 25, 'Chennai', 'arun@example.com', 1500.00),
+('Divya Suresh', 34, 'Coimbatore', 'divya@example.com', 3000.00),
+('Mohan Raj', 29, 'Madurai', 'mohan@example.com', 800.00),
+('Priya Das', 40, 'Coimbatore', 'priya@example.com', 4200.00),
+('Ravi Shankar', 22, 'Salem', 'ravi@example.com', 1200.00),
+('Sundar Pichai', 37, 'Chennai', 'sundar@example.com', 10000.00);
+select * from Customers;
+| CustomerID | Name          | Age | City       | Email                                           | TotalPurchase |
+| ---------- | ------------- | --- | ---------- | ----------------------------------------------- | ------------- |
+| 1          | Arun Kumar    | 25  | Chennai    | [arun@example.com](mailto:arun@example.com)     | 1500.00       |
+| 2          | Divya Suresh  | 34  | Coimbatore | [divya@example.com](mailto:divya@example.com)   | 3000.00       |
+| 3          | Mohan Raj     | 29  | Madurai    | [mohan@example.com](mailto:mohan@example.com)   | 800.00        |
+| 4          | Priya Das     | 40  | Coimbatore | [priya@example.com](mailto:priya@example.com)   | 4200.00       |
+| 5          | Ravi Shankar  | 22  | Salem      | [ravi@example.com](mailto:ravi@example.com)     | 1200.00       |
+| 6          | Sundar Pichai | 37  | Chennai    | [sundar@example.com](mailto:sundar@example.com) | 10000.00      |
 
-CREATE TABLE Member (
-    member_id INT PRIMARY KEY,
-    name VARCHAR(50),
-    type VARCHAR(20)
-);
+SELECT * FROM Customers where City = 'Coimbatore';
+| CustomerID | Name         | Age | City       | Email                                         | TotalPurchase |
+| ---------- | ------------ | --- | ---------- | --------------------------------------------- | ------------- |
+| 2          | Divya Suresh | 34  | Coimbatore | [divya@example.com](mailto:divya@example.com) | 3000.00       |
+| 4          | Priya Das    | 40  | Coimbatore | [priya@example.com](mailto:priya@example.com) | 4200.00       |
 
-CREATE TABLE Issue (
-    issue_id INT PRIMARY KEY,
-    member_id INT,
-    book_id INT,
-    issue_date DATE,
-    FOREIGN KEY(member_id) REFERENCES Member(member_id),
-    FOREIGN KEY(book_id) REFERENCES Book(book_id)
-);
--- Book
-INSERT INTO Book VALUES (101, 'Java Basics', 'James');
-INSERT INTO Book VALUES (102, 'Python Pro', 'Guido');
-INSERT INTO Book VALUES (103, 'DBMS', 'Elmasri');
+SELECT * FROM Customers WHERE Age > 30;
+| CustomerID | Name          | Age | City       | Email                                           | TotalPurchase |
+| ---------- | ------------- | --- | ---------- | ----------------------------------------------- | ------------- |
+| 2          | Divya Suresh  | 34  | Coimbatore | [divya@example.com](mailto:divya@example.com)   | 3000.00       |
+| 4          | Priya Das     | 40  | Coimbatore | [priya@example.com](mailto:priya@example.com)   | 4200.00       |
+| 6          | Sundar Pichai | 37  | Chennai    | [sundar@example.com](mailto:sundar@example.com) | 10000.00      |
 
--- Member
-INSERT INTO Member VALUES (1, 'Abhinav', 'Student');
-INSERT INTO Member VALUES (2, 'Priya', 'Staff');
-INSERT INTO Member VALUES (3, 'Raj', 'Student');
+SELECT * FROM Customers
+WHERE TotalPurchase > 2000;
+| CustomerID | Name          | Age | City       | Email                                           | TotalPurchase |
+| ---------- | ------------- | --- | ---------- | ----------------------------------------------- | ------------- |
+| 2          | Divya Suresh  | 34  | Coimbatore | [divya@example.com](mailto:divya@example.com)   | 3000.00       |
+| 4          | Priya Das     | 40  | Coimbatore | [priya@example.com](mailto:priya@example.com)   | 4200.00       |
+| 6          | Sundar Pichai | 37  | Chennai    | [sundar@example.com](mailto:sundar@example.com) | 10000.00      |
 
--- Issue
-INSERT INTO Issue VALUES (1, 1, 101, '2025-06-17');
-INSERT INTO Issue VALUES (2, 2, 102, '2025-06-15');
-
-Output:
-Course fee updated.
-Courses:
-C101 | Java | ₹5000
-C102 | Python | ₹6000
-C103 | SQL | ₹3000
-C104 | Web Dev | ₹4500
-C105 | C++ | ₹4000
+SELECT * FROM Customers
+ORDER BY TotalPurchase DESC; //high to low
+| CustomerID | Name          | TotalPurchase |
+| ---------- | ------------- | ------------- |
+| 6          | Sundar Pichai | 10000.00      |
+| 4          | Priya Das     | 4200.00       |
+| 2          | Divya Suresh  | 3000.00       |
+| 1          | Arun Kumar    | 1500.00       |
+| 5          | Ravi Shankar  | 1200.00       |
+| 3          | Mohan Raj     | 800.00        |
