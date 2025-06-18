@@ -1,5 +1,5 @@
+elseif condition using && operator:
 
-elseif condition using && operator
 public class Main
 {
 	public static void main(String[] args) {
