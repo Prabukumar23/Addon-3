@@ -1,0 +1,95 @@
+JDBC- JAVA DATABASE CONNECTIVITY.
+
+*ITS IS AN API IN JAVA THAT ALLOWS YOU TO CONNECT THROUGH JAVA TO DATABASE.
+*INSIDE JAVA YOU CAN EXECUTE YOUR SQL QUERIES USING THE JDBC DRIVER.
+*ODBC IS USED BEFORE THE INVENTION OF JDBC.
+
+JDBC ARCHITECTURE:
+
+1)APPLICATION LAYER.
+2)JDBC API.
+3) JDBC DRIVER.
+4)DATABASE.
+
+-----------------------------------------
+
+SETTING OF JDBC ENVIRONMENT:
+
+
+MVN REPOSITARY (MAVEN). 
+
+----------------------------------------
+
+JDBC STEP TO CONNECT WITH DATABASE:
+
+1) LOAD THE DRIVER CLASS.
+2) CREATE A CONNECT.
+3)CREATING A STATEMENT .
+4) WRITING THE QUERY AND EXECUTE THE QUERY.
+5)CLOSE THE CONNECTION.
+
+----------------------------------------
+
+IMPORTANT JDBC CLASS AND INTERFACE:
+
+1)DRIVER MANAGER.
+2)CONNECTION (CLASS).
+3)STATEMENT.
+4)PREPARED STATEMENT.
+5)RESULT SET.
+
+---------------------------------------
+
+QUERY EXECUTING FUNCTION:
+
+1)EXECUTE QUERY.
+2)EXECUTE UPDATE.
+3)EXECUTE .(TRUE or FALSE).
+
+--------------------------------------
+
+package JDBC;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class DBconnection {
+	static String URL = "jdbc:mysql://localhost:3306/kgcas";
+	static String USERNAME = "root";
+	static String PASSWORD = "Kgisl@123";
+	public static void main(String args[]) {
+		try {
+		Connection connect =  DriverManager.getConnection(URL,USERNAME,PASSWORD);
+		System.out.println("Connected Successfully..!");
+//				String insertQ = "Insert into course_details values(?,?,?)";
+//				PreparedStatement ps = connect.prepareCall(insertQ);
+//				ps.setInt(1, 555);
+//				ps.setString(2,"Prabu");
+//				ps.setInt(3, 3);
+//				
+//				ps.execute();
+//					System.out.println("Data stored successfully");
+		
+		String squery = " select * from course_details;";
+				Statement st = connect.createStatement();
+				ResultSet res = st.executeQuery(squery);
+				while(res.next()) {
+					System.out.print("d_id :" + res.getInt(1));
+					System.out.print("course_name :" + res.getString(2));
+					System.out.print("course_fee :" + res.getInt(3));
+					System.out.println();
+				
+				}
+				
+				
+		}
+		catch(SQLException e) {
+		 e.printStackTrace();
+		}
+	
+}
+}
