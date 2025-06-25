@@ -10,7 +10,6 @@ public class StudentDBManager {
         Scanner sc = new Scanner(System.in);
         Connection conn = null;
         try {
-            // Step 1: Connect to DB
             conn = DriverManager.getConnection(URL, USER, PASS);
             System.out.println(" Connected to MySQL Database.");
             while (true) {
@@ -22,10 +21,9 @@ public class StudentDBManager {
                 int choice = sc.nextInt();
 
                 if (choice == 1) {
-                    
                     System.out.print("Enter ID: ");
                     int id = sc.nextInt();
-                    sc.nextLine(); // clear buffer
+                    sc.nextLine(); 
                     System.out.print("Enter Name: ");
                     String name = sc.nextLine();
                     System.out.print("Enter Department: ");
@@ -38,15 +36,11 @@ public class StudentDBManager {
                     pstmt.setString(2, name);
                     pstmt.setString(3, dept);
                     pstmt.setFloat(4, marks);
-
                     int rows = pstmt.executeUpdate();
                     System.out.println("✅ " + rows + " student inserted successfully!");
-
                 } else if (choice == 2) {
-                    // Display Students
                     Statement stmt = conn.createStatement();
                     ResultSet rs = stmt.executeQuery("SELECT * FROM students");
-
                     System.out.println("\nID\tName\t\tDepartment\tMarks");
                     System.out.println("---------------------------------------------");
                     while (rs.next()) {
